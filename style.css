@@ -1,0 +1,252 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+html {
+    box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}
+
+/*
+    BARVY
+    šedá: #e5e5e5 (pozadí body)
+    světle fialová: #48418e (navigace, primární tlačítko, nadpisy služeb, patička)
+    tmavě fialová: #25133d (výchozí barva gradientu, hover primárního tlačítka)
+    nachová: #aa5477 (koncová barva gradientu)
+    gradient v záhlaví: linear-gradient(to right, #25133d 25%, #aa5477 100%)
+
+    PÍSMO
+    Source Sans Pro
+    https://fonts.google.com/specimen/Source+Sans+Pro?query=source+Sans
+    - light 300 (slogan)
+    - bold 700 (logo, nadpisy)
+    - regular 400 (vše ostatní)
+
+    HOVER EFEKT
+    navigace: prohodit barvu písma s barvou pozadí
+    primární tlačítko: ohraničení světle fialovou, pozadí tmavě fialovou
+    sekundární tlačítko: ohraničení i pozadí světle fialovou
+
+    BONUSOVÁ VÝZVA
+    Změň barvu ikon na tmavě fialovou.
+*/
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.container {
+    /* obsah stránky je omezený do pruhu širokého 1200px */
+    max-width: 1200px;
+    /* stránka je vycentrovaná */
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- zde začni psát vlastní CSS ----- */
+
+
+.menu{
+  display:flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  color: #48418e;
+  padding: 0;
+  margin: 0;
+}
+
+.nav{
+  flex-basis: 50%;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.nav:hover{
+  background-color: #48418e;
+  color: #fff;
+}
+
+.superapp{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hlavicka{
+  color: #fff;
+  background-image: linear-gradient(to right, #25133d 25%, #aa5477 100%);
+  padding: 1rem 2rem;
+}
+
+.hlavicka-pravy{
+  display: none;
+}
+
+.nadpis{
+  font-size: 2rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.slogan{
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin:0;
+}
+
+.tlacitka{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.tlacitko{
+  border: 1px solid #fff;
+  border-radius: 7px;
+  margin: 1.3rem 0;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+.primarni{
+  background-color: #48418e;
+}
+
+.primarni:hover{
+  background-color: #25133d;
+  border-color: #48418e;;
+}
+
+.vedlejsi:hover{
+  background-color:#48418e;
+  border-color: #48418e;
+}
+
+.sluzba{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.sluzba-nazev{
+  color: #48418e;
+}
+
+.ikona{
+  width: 4rem;
+}
+
+.paticka{
+  background-color:  #48418e;
+  color:#fff;
+  text-align: center;
+  font-size: .8rem;
+  line-height: 0;
+  margin:0;
+  padding: 1px;
+  }
+  
+  /* tablet */
+  
+  @media screen and (min-width: 720px){
+
+    .obsah{
+      display: flex;
+    }
+
+    .tlacitka{
+      display: flex;
+      width: 50%;
+      justify-content: space-between;
+    }
+
+    .tlacitko{
+      flex-basis: calc(100%/2 - 10px);
+      margin:0;
+      font-size: 1.2rem;
+    }
+
+    .menu{
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    .nav{
+      flex-basis: auto;
+      padding: 10px 16px;
+    }
+
+    .nadpis{
+      font-size: 4rem;
+    }
+
+    .slogan{
+      font-size: 2.5rem;
+    }
+
+    .ikona{
+      order: -1;
+    }
+
+    .sluzba-popis{
+      margin: 0 .7rem;
+    }
+
+    .sluzba{
+      margin: 1rem;
+    }
+
+    .sluzba-nazev{
+      margin: 1rem 0;
+    }
+
+  }
+
+  @media screen and (min-width: 1150px){
+
+    .hlavicka{
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      min-height: 400px;
+      align-items: stretch;
+      padding-right: 0;
+    }
+
+    .hlavicka-levy{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .hlavicka-pravy{
+      display: block;
+    }
+
+    .telefon{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      width: auto;
+    }
+        
+    .tlacitka{
+      width: 90%;
+    }
+
+    .sluzba{
+      margin: 1.5rem;
+    }
+
+  }
